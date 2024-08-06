@@ -1,0 +1,27 @@
+(executables
+  (names stubgen_c stubgen_ml)
+  (flags (:standard -w -9-27))
+  (modules
+    stubgen_c
+    stubgen_ml)
+  (libraries
+    static
+    ctypes.stubs
+    ctypes
+    ctypes-foreign
+    )
+)
+
+; (rule (with-stdout-to "generated_types.ml" (run "types/types_stubgen.exe")))
+
+(library
+  (name static)
+  (public_name corosynctalk.bindings)
+  (modules
+    bindings)
+  (flags (:standard -w -9-27))
+  (libraries
+    ctypes
+    ctypes-foreign
+    ctypes.stubs)
+)
