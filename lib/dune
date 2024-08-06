@@ -1,2 +1,10 @@
+(rule (with-stdout-to "generated.ml" (run "../lib_gen/stubgen_ml.exe")))
+
+(rule (with-stdout-to "generated_stubs.c" (run "../lib_gen/stubgen_c.exe")))
+
+
 (library
- (name hello))
+ (name dynamic)
+ (libraries ctypes ctypes.stubs ctypes-foreign) 
+)
+
